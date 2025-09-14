@@ -1,0 +1,739 @@
+\UseRawInputEncoding
+\documentclass[conference]{IEEEtran}
+
+
+% =====================================
+% CODIFICACIÓN Y LENGUAJE
+% =====================================
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+% =====================================
+% GEOMETRÍA Y FORMATO DE PÁGINA
+% =====================================
+\usepackage{geometry}
+\geometry{left=2cm, right=2cm, top=2cm, bottom=2cm}
+\usepackage{setspace}
+\setstretch{1.25}
+
+% =====================================
+% MATEMÁTICAS Y SÍMBOLOS
+% =====================================
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\DeclareSIUnit{\peso}{\$}
+\usepackage{newunicodechar}
+\newunicodechar{≥}{\geq}
+\newunicodechar{✅}{\checkmark}
+
+% =====================================
+% COLORES Y CAJAS
+% =====================================
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\usepackage{soul}
+
+% =====================================
+% TABLAS Y ARRAYS
+% =====================================
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{multicol}
+
+% =====================================
+% GRÁFICOS Y FIGURAS
+% =====================================
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{fillbetween}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, shapes.geometric, arrows, positioning, intersections}
+\usepackage{forest}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+
+% =====================================
+% LISTAS Y ENUMERACIONES
+% =====================================
+\usepackage{enumitem}
+
+% =====================================
+% ALGORITMOS Y CÓDIGO
+% =====================================
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\lstset{
+  language=Python,
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{blue},
+  stringstyle=\color{orange},
+  commentstyle=\color{gray},
+  showstringspaces=false,
+  frame=single,
+  breaklines=true,
+  tabsize=4,
+  captionpos=b
+}
+
+% =====================================
+% BIBLIOGRAFÍA
+% =====================================
+\usepackage{csquotes}
+\usepackage[
+  style=apa,
+  backend=biber,
+  hyperref=true,
+  backref=true,
+  doi=true,
+  url=true
+]{biblatex}
+\DeclareLanguageMapping{spanish}{spanish-apa}
+\addbibresource{Referencias.bib}
+
+
+
+% =====================================
+% FORMATO DE TÍTULOS Y ENCABEZADOS
+% =====================================
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+
+% =====================================
+% ENLACES Y REFERENCIAS
+% =====================================
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    citecolor=blue,
+    pdfauthor={Equipo 1},
+    pdftitle={El Reto del Titanic — Paper Académico},
+    pdfsubject={Inteligencia Artificial Avanzada para la Ciencia de Datos I},
+    pdfkeywords={Titanic, machine learning, fairness, interpretabilidad, clasificación}
+}
+
+% =====================================
+% UTILIDADES ADICIONALES
+% =====================================
+\usepackage{todonotes}
+\usepackage{ragged2e}
+% ===============================
+% Configuración de página
+% ===============================
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{blue!70}{\textbf{El Reto del Titanic — Paper Académico}}}
+\fancyhead[R]{\thepage}
+
+% ===============================
+% Documento
+% ===============================
+\begin{document}
+
+%-------------------------------------
+% Portada
+%-------------------------------------
+\begin{titlepage}
+    \thispagestyle{empty}
+    \centering
+    \vspace*{0.5cm}
+
+    % Logo (ajusta el archivo si cambia el nombre)
+    \includegraphics[width=7.5cm]{tecnologico-de-monterrey-blue.png}\\[0.8cm]
+
+    
+     % Curso
+    {\large \bfseries Inteligencia Artificial Avanzada para la Ciencia de Datos I}\\[0.3cm]
+    {\normalsize Horario: 09:10–12:50 \quad | \quad Edificio: Aulas III \quad | \quad Salón: 204}\\[0.8cm]
+
+    % Título
+    \vspace{1cm}
+    {\huge \bfseries El Reto del Titanic}\\[0.3cm]
+    {\large \itshape Paper académico}\\[1.2cm]
+
+    % Equipo
+    {\large \bfseries Equipo 1}\\[0.4cm]
+    {\large
+    Kevin Horacio Molina Peñuñuri \textit{A01253141}\\
+    Santiago Juárez Roaro \textit{A01705439}\\
+    David Alejandro Acuña Orozco \textit{A00571187}\\
+    Iván Alejandro López Valenzuela \textit{A01284875}\\
+    Joaquín Sainz Muleiro \textit{A01783801}
+    }\\[1.2cm]
+
+    % Profesorado
+    {\large \bfseries Profesorado}\\[0.6cm]
+    {\normalsize
+    \begin{tabular}{@{}c@{}}
+    Blanca Rosa Ruiz Hernández \\[0.2cm]
+    Raúl Valente Ramírez Velarde \\[0.2cm]
+    Iván Mauricio Amaya Contreras \\[0.2cm]
+    Frumencio Olivas Álvarez \\[0.2cm]
+    Antonio Carlos Bento \\[0.2cm]
+    Alfredo Alan Flores Saldívar
+    \end{tabular}
+    }\\[1.2cm]
+
+    % Fecha
+    {\large \bfseries Fecha: \today}\\[0.8cm]
+
+    \vfill
+\end{titlepage}
+
+%-------------------------------------
+% Índice
+%-------------------------------------
+\tableofcontents
+
+
+\newpage
+
+\section*{Abstract}\label{sec:Abstract}
+
+\justify{
+\textbf{Contexto:} El hundimiento del Titanic en 1912 es un caso emblemático para el análisis de desigualdades sociales y sesgos en la toma de decisiones. La abundancia de registros históricos y la existencia de un dataset abierto \parencite{kaggleTitanic} lo han convertido en un referente para estudios de aprendizaje automático, donde confluyen factores de clase, género y edad como determinantes de la supervivencia.  
+}
+
+\justify{
+\textbf{Objetivo:} Este trabajo busca identificar los principales determinantes de supervivencia en el Titanic, examinar cómo se reflejan los sesgos sociales en los datos y evaluar los \textit{trade-offs} entre precisión predictiva y equidad en modelos de clasificación supervisada.  
+}
+
+\justify{
+\textbf{Métodos:} Se diseñó un pipeline reproducible que incluyó limpieza e imputación de datos, \textit{feature engineering} (FamilySize, Title, CabinKnown) y el entrenamiento de cuatro algoritmos (Regresión Logística, Random Forest, SVM y XGBoost). La evaluación consideró validación cruzada, métricas de desempeño (Accuracy, F1, ROC-AUC) y análisis de interpretabilidad mediante SHAP y LIME \parencite{lundberg2017shap, ribeiro2016lime}. Además, se aplicaron métricas de \textit{fairness} interseccional para explorar disparidades por género y clase.  
+}
+
+\justify{
+\textbf{Resultados:} Random Forest y XGBoost alcanzaron el mejor desempeño global. Género, clase socioeconómica, tarifa y tamaño familiar emergieron como predictores clave, mientras que variables indirectas como la longitud del nombre y el registro de cabina también capturaron estatus social. Las métricas de equidad evidenciaron diferencias significativas, consistentes con desigualdades históricas documentadas \parencite{frey2011noblesse, gleicher2012women}.  
+}
+
+\justify{
+\textbf{Conclusiones:} El Titanic muestra cómo los modelos reproducen patrones sociales y sesgos de documentación. Más allá de su valor histórico, este caso ofrece lecciones aplicables al diseño de sistemas de IA actuales, subrayando la necesidad de equilibrar precisión y justicia social \parencite{floridi2019framework}.  
+}
+
+\justify{
+\vspace{0.5cm}
+\noindent\textbf{Palabras clave:} machine learning, interpretability, fairness, ethical AI, Titanic, classification
+}
+
+
+%-------------------------------------
+% Introducción
+%-------------------------------------
+\section{Introducción} \label{sec:introduccion}
+
+\justify{
+El hundimiento del Titanic en 1912, donde más de 1500 personas fallecieron y solo alrededor del 38\% sobrevivió \parencite{lord1955night}, expuso que factores sociales como género, clase y edad podían significar la diferencia entre la vida y la muerte. Este evento, ampliamente documentado, constituye un caso paradigmático para estudiar cómo las desigualdades estructurales influyen en la supervivencia \parencite{frey2011noblesse}.
+}
+
+\justify{
+El Titanic no fue únicamente un barco hundido, sino un espejo de las jerarquías sociales de su tiempo. Su análisis permite reflexionar sobre sesgos que también afectan a los algoritmos modernos de inteligencia artificial. Así, este dataset trasciende el interés histórico y se convierte en un recurso académico para discutir dilemas de interpretabilidad, equidad y ética algorítmica en la IA \parencite{hardt2016equality}.
+}
+
+\subsection{Contexto del Problema}
+
+\justify{
+El Titanic, considerado insumergible, zarpó con más de 2200 pasajeros y tripulantes, pero solo disponía de 20 botes salvavidas, insuficientes para todos. La tragedia mostró cómo las jerarquías sociales determinaron el acceso a la supervivencia: los pasajeros de primera clase, con camarotes cercanos a los botes, tuvieron mayores oportunidades, mientras que los de tercera, ubicados en cubiertas inferiores, enfrentaron obstáculos físicos y sociales para evacuar. La regla de “mujeres y niños primero” se aplicó de forma desigual, favoreciendo a las clases altas y casi inexistente en tercera clase \parencite{gleicher2012women, dawson1995women}. Estos patrones convierten al Titanic en un caso paradigmático para examinar cómo las decisiones humanas reflejan desigualdades estructurales.
+}
+
+\justify{
+En ciencia de datos, el dataset del Titanic es un clásico del aprendizaje automático. Su valor no reside únicamente en predecir la supervivencia, sino también en reflexionar sobre interpretabilidad, equidad y dilemas éticos que siguen siendo relevantes en ámbitos como la salud, la justicia y las finanzas \parencite{lundberg2017shap}.
+}
+
+\subsection{Motivación}
+
+\justify{
+El análisis de este evento histórico sigue siendo pertinente porque ilustra cómo los datos reflejan inequidades sociales. Hoy, algoritmos entrenados con información sesgada pueden amplificar desigualdades y afectar a millones de personas \parencite{barocas2019fairness, mittelstadt2016ethics}. Estudiar el Titanic permite comprender cómo se manifiestan los sesgos, qué limitaciones surgen al optimizar únicamente por precisión y cómo equilibrar desempeño y equidad. En este sentido, el caso constituye un escenario ideal para explorar las implicaciones éticas de la IA contemporánea y la necesidad de diseñar sistemas más justos.
+}
+
+\subsection{Preguntas de Investigación}
+
+\justify{
+Este trabajo se guía por cuatro preguntas centrales:
+}
+
+\begin{itemize}
+    \item[RQ1:] ¿Qué factores fueron más determinantes para la supervivencia?
+    \item[RQ2:] ¿Cómo se manifiestan los sesgos sociales en los patrones de supervivencia?
+    \item[RQ3:] ¿Qué \textit{trade-offs} existen entre precisión y equidad en este contexto?
+    \item[RQ4:] ¿Qué lecciones podemos extraer para sistemas de decisión modernos?
+\end{itemize}
+
+\subsection{Contribuciones}
+
+\justify{
+Las principales contribuciones de este trabajo son:
+}
+
+\begin{enumerate}
+    \item Presentamos un análisis exhaustivo de los sesgos en los datos históricos, mostrando cómo género, clase y familia influyeron en la supervivencia.
+    \item Realizamos una comparación rigurosa de múltiples algoritmos de \textit{machine learning} aplicados al Titanic, evaluando tanto desempeño como métricas de equidad.
+    \item Proponemos un \textit{framework} para evaluar \textit{fairness} en contextos de recursos limitados, integrando métricas como paridad demográfica e igualdad de oportunidad.
+    \item Ofrecemos \textit{insights} sobre la tensión entre optimización predictiva y justicia, con implicaciones directas para sistemas de IA en dominios sensibles.
+\end{enumerate}
+
+\subsection{Estructura del Paper}
+
+\justify{
+El resto del artículo se organiza de la siguiente manera: la Sección 4 revisa literatura previa sobre el Titanic, interpretabilidad, \textit{fairness} y ética en IA, identificando el vacío que aborda este estudio. La Sección 5 describe la metodología, incluyendo preprocesamiento, diseño experimental y análisis de \textit{fairness}. La Sección 6 presenta los resultados, desde el análisis exploratorio hasta la validación de hipótesis. La Sección 7 discute los hallazgos, implicaciones éticas y limitaciones. Finalmente, la Sección 8 resume las contribuciones y propone líneas de investigación futura.
+}
+
+%-------------------------------------
+% Revisión de Literatura
+%-------------------------------------
+
+\section{Revisión de Literatura} \label{sec:revision}
+
+\subsection{Trabajos Previos sobre el Dataset Titanic}
+
+\justify{
+El dataset del Titanic constituye un \textit{benchmark} clásico en aprendizaje automático, ampliamente utilizado en docencia y en competiciones como ``Titanic: Machine Learning from Disaster'' de Kaggle \cite{kaggleTitanic}. Sin embargo, la mayoría de estos análisis priorizan la optimización de la precisión predictiva sin examinar las implicaciones sociales ni los sesgos históricos reflejados en los datos. 
+}
+
+\justify{
+En la literatura académica, varios estudios han abordado el Titanic como caso de análisis en ciencias sociales e historia económica. Frey, Savage y Torgler \cite{frey2011noblesse} compararon el Titanic y el Lusitania, mostrando cómo clase y género influyeron en la supervivencia. Gleicher \cite{gleicher2012women} examinó la regla de ``mujeres y niños primero'', concluyendo que su aplicación fue desigual entre clases sociales. Dawson \cite{dawson1995women} aportó un análisis crítico sobre esta misma norma, evidenciando que no se aplicó de manera uniforme. Hall \cite{hall1986social} y De Waal \cite{dewaal2012titanic} confirmaron el peso determinante del estatus socioeconómico, mientras que Woolley \cite{woolley2025class} exploró cómo la memoria histórica del desastre ha estado mediada por género y clase. Estos trabajos ofrecen una base sólida para vincular el Titanic con reflexiones contemporáneas sobre inequidad estructural.
+}
+
+\subsection{Machine Learning Interpretable}
+
+\justify{
+La interpretabilidad se ha convertido en un eje central en la investigación de IA. Métodos como SHAP \cite{lundberg2017shap} y LIME \cite{ribeiro2016lime} permiten explicar predicciones de modelos complejos, revelando la contribución de cada variable. Aplicados al Titanic, ayudan a comprender por qué ciertos pasajeros presentan mayor probabilidad de supervivencia, más allá de métricas de desempeño.
+}
+
+\justify{
+En contextos críticos, como la salud \cite{caruana2015intelligible} y la justicia penal \cite{rudin2019interpretable}, estos métodos han demostrado que la interpretabilidad no solo favorece la transparencia, sino que también fortalece la confianza social en sistemas de decisión automatizados. El análisis del Titanic bajo estas técnicas permite trasladar lecciones de interpretabilidad a un escenario histórico que refleja desigualdades profundas.
+}
+
+\subsection{Fairness en Machine Learning}
+
+\justify{
+El debate sobre la equidad en IA ha cobrado gran relevancia en la última década. Se han propuesto métricas como \textit{Demographic Parity}, \textit{Equal Opportunity} y \textit{Equalized Odds} \cite{barocas2019fairness, hardt2016equality}. Sin embargo, los teoremas de imposibilidad muestran que no todas las definiciones pueden cumplirse simultáneamente \cite{kleinberg2017tradeoffs, chouldechova2017fair}, lo que obliga a priorizar criterios según el contexto. Revisiones recientes, como la de Mehrabi et al. \cite{mehrabi2021survey}, han sistematizado el panorama de métricas y técnicas de mitigación, evidenciando tanto avances como limitaciones abiertas.
+}
+
+\justify{
+En el Titanic, estas métricas hacen visible cómo los modelos reproducen o incluso amplifican desigualdades históricas de género y clase. Su evaluación resulta clave para extraer lecciones aplicables a sistemas modernos de IA que impactan directamente en grupos vulnerables.
+}
+
+\subsection{Ética en IA y Decisiones Algorítmicas}
+
+\justify{
+Más allá de la técnica, la literatura reciente ha enfatizado la necesidad de principios éticos en IA. Floridi y Cowls \cite{floridi2019framework} propusieron un marco de cinco principios —beneficencia, no maleficencia, autonomía, justicia y explicabilidad— como guía de diseño responsable. Mitchell et al. \cite{mitchell2019modelcards} introdujeron el concepto de \textit{Model Cards} como herramienta de documentación transparente para evaluar impacto social. Jobin et al. \cite{jobin2019global} sistematizaron las guías éticas globales en IA, mientras que la Comisión Europea \cite{ec2019trustworthy} estableció lineamientos oficiales para el desarrollo de IA confiable.
+}
+
+\justify{
+Estas propuestas encuentran un paralelo con el Titanic: las decisiones de supervivencia estuvieron atravesadas por normas sociales que reflejaban desigualdades de la época. La reflexión ética contemporánea permite reinterpretar esa tragedia histórica y conectar sus lecciones con los retos actuales de la IA.
+}
+
+\subsection{Gap en la Literatura}
+
+\justify{
+Aunque abundan los estudios sobre el Titanic y existe extensa investigación sobre interpretabilidad y equidad en IA, pocos trabajos integran ambos enfoques. La mayoría se concentra en desempeño predictivo o en análisis sociales descriptivos, sin explorar cómo los modelos modernos reproducen, explican o mitigan desigualdades históricas. En particular, no se han aplicado métricas de \textit{fairness} interseccional ni técnicas modernas de interpretabilidad (SHAP, LIME) al Titanic de manera conjunta. Este estudio busca llenar ese vacío, combinando rigor técnico y reflexión ética para ofrecer una visión integral del problema.
+}
+
+%-------------------------------------
+% Metodología
+%-------------------------------------
+
+\section{Metodología} \label{sec:metodologia}
+
+\justify{
+La metodología aplicada en este estudio integró un \textit{pipeline} reproducible que incluyó preprocesamiento, análisis exploratorio de datos, ingeniería de variables, modelado predictivo y análisis de \textit{fairness}. Este diseño buscó equilibrar tanto la rigurosidad estadística como la interpretabilidad y las consideraciones éticas, siguiendo buenas prácticas en ciencia de datos \parencite{provost2013, kuhn2019}.
+}
+
+\subsection{Dataset y Preprocesamiento}
+
+\subsubsection{Descripción del Dataset}
+\justify{
+El dataset proviene de la competencia ``Titanic: Machine Learning from Disaster'' de Kaggle \cite{kaggleTitanic} e incluye información demográfica, socioeconómica y de viaje de 891 pasajeros. Sus principales variables son: PassengerId, Survived (objetivo), Name, Sex, Age, SibSp, Parch, Fare, Ticket, Cabin y Embarked. 
+En promedio, solo el 38\% de los pasajeros sobrevivieron. La media de edad fue de 29.1 años y el precio medio del boleto fue de 32 libras, aunque con gran dispersión (máximo = 512). Además, la variable objetivo está desbalanceada: aproximadamente 61\% de los registros corresponden a no sobrevivientes.
+}
+
+\begin{table}[H]
+\centering
+\caption{Resumen descriptivo de las principales variables numéricas del dataset Titanic.}
+\begin{tabular}{lcccccc}
+\toprule
+Variable & Media & Desv. Std & Mín & 25\% & 75\% & Máx \\
+\midrule
+Age   & 29.1 & 13.1 & 0.4  & 22.0 & 38.0 & 80.0 \\
+Fare  & 32.2 & 49.7 & 0.0  & 7.9  & 31.0 & 512.3 \\
+SibSp & 0.5  & 1.1  & 0.0  & 0.0  & 1.0  & 8.0 \\
+Parch & 0.4  & 0.8  & 0.0  & 0.0  & 0.0  & 6.0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Análisis de Calidad de los Datos}
+\justify{
+El análisis reveló tres fuentes principales de valores faltantes: Cabin (77\%), Age (20\%) y Embarked (<1\%). Los pasajeros de primera clase presentaron registros más completos, mientras que los de tercera concentraron la mayor proporción de vacíos, lo que refleja un sesgo estructural en la documentación de la época.
+}
+
+\begin{figure}[H]\centering
+\includegraphics[width=0.75\textwidth, trim=20 40 20 40, clip]{Matriz Patron.JPG}
+\caption{Matriz de valores faltantes por variable y registro. Se observa concentración de datos ausentes en \textit{Cabin} y parcialmente en \textit{Age}.}
+\label{fig:missing_matrix}
+\end{figure}
+
+\justify{
+La baja correlación entre variables con datos ausentes justificó estrategias de imputación independientes, por lo que no se incluyó figura adicional.
+}
+
+\subsubsection{Ingeniería de Features}
+\justify{
+Se generaron variables derivadas para mejorar la capacidad predictiva: 
+\textit{FamilySize} (SibSp + Parch + 1), 
+\textit{Title} (extraído del nombre) y 
+\textit{CabinKnown} (indicador binario de cabina registrada). 
+Se aplicó \textit{One-Hot Encoding} a variables categóricas como Sex y se eliminaron identificadores irrelevantes como PassengerId y Ticket, para reducir colinealidad y redundancia \parencite{kuhn2019}.
+}
+
+\subsubsection{Estrategia de Imputación}
+\justify{
+Se compararon métodos de imputación simple (media/moda), por agrupación, KNN y Random Forest. Para Age, Random Forest y la imputación por agrupación ofrecieron menor error cuadrático medio ($\approx$ 9), reproduciendo mejor la distribución original. Para Cabin, se optó por la creación de la variable binaria CabinKnown en lugar de imputar directamente, dado el alto nivel de ausencias \parencite{buuren2010}.
+}
+
+\subsection{Diseño Experimental}
+
+\subsubsection{Formulación del Problema}
+\justify{
+El problema se definió como una tarea de clasificación binaria: predecir la variable Survived a partir de las características de cada pasajero. Las métricas principales fueron F1-Score y ROC-AUC, buscando un equilibrio entre precisión y sensibilidad \parencite{provost2013}.
+}
+
+\subsubsection{Estrategia de Validación}
+\justify{
+Se implementó un \texttt{train/test split} del 80/20, complementado con validación cruzada estratificada 5-fold. Esta estrategia mitigó el \textit{overfitting} y aumentó la robustez. La selección de hiperparámetros se realizó mediante \texttt{Grid Search} en combinación con \texttt{Stratified K-Fold} \parencite{kuhn2019}.
+}
+
+\subsubsection{Algoritmos Implementados}
+\justify{
+Se entrenaron cuatro algoritmos supervisados: 
+(1) Regresión Logística, como modelo lineal interpretable; 
+(2) Random Forest, ensamble robusto frente a colinealidad; 
+(3) SVM, para clasificación con fronteras no lineales; 
+(4) XGBoost, algoritmo de ensamble altamente competitivo.
+}
+
+\subsubsection{Análisis de Fairness}
+\justify{
+Se evaluaron métricas de equidad como Demographic Parity, Equal Opportunity y Equalized Odds \parencite{barocas2019fairness, hardt2016equality}. Asimismo, se realizó un análisis interseccional para identificar cómo los modelos reproducían desigualdades de género, clase y edad, aplicando ajustes metodológicos para mitigar dichas disparidades.
+}
+
+\subsection{Herramientas y Reproducibilidad}
+\justify{
+El stack tecnológico incluyó Python 3.11 con bibliotecas \texttt{pandas}, \texttt{scikit-learn}, \texttt{imbalanced-learn}, \texttt{XGBoost} y \texttt{SHAP}. Todo el código fue implementado en Jupyter Notebooks, con control de versiones en GitHub, lo que garantizó trazabilidad y replicabilidad de los experimentos \parencite{provost2013, kuhn2019}.
+}
+
+%-------------------------------------
+% Resultados
+%-------------------------------------
+
+\section{Resultados} \label{sec:resultados}
+
+\subsection{Análisis Exploratorio}
+
+\justify{
+El análisis exploratorio de datos permitió identificar patrones relevantes en la supervivencia de los pasajeros, en línea con estudios previos \parencite{frey2011noblesse, gleicher2012women}. La tasa de supervivencia fue significativamente mayor en mujeres y en pasajeros de primera clase, confirmando hipótesis históricas y evidenciando la influencia de factores sociales estructurales. Además, la distribución de edad mostró que los niños tuvieron una probabilidad relativamente mayor de sobrevivir, aunque este efecto no fue uniforme entre las distintas clases sociales.
+}
+
+\justify{
+Las visualizaciones clave refuerzan esta narrativa: la Figura~\ref{fig:survival_sex} muestra la clara ventaja de las mujeres en términos de supervivencia, mientras que la Figura~\ref{fig:survival_pclass} evidencia el gradiente de inequidad entre clases sociales. Estas observaciones serán fundamentales en el análisis posterior de \textit{fairness}. Finalmente, el análisis de correlaciones mostró patrones débiles de colinealidad, lo que justificó la inclusión de modelos no lineales, sin necesidad de figura adicional.
+}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{fig_survival_by_sex.png}
+        \caption{Supervivencia por sexo. Se observa una ventaja clara de las mujeres, consistente con la regla social ``mujeres y niños primero''.}
+        \label{fig:survival_sex}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{fig_survival_by_pclass.png}
+        \caption{Supervivencia por clase socioeconómica. Los pasajeros de primera clase tuvieron mayores probabilidades de sobrevivir, confirmando la relación entre estatus social y acceso a recursos.}
+        \label{fig:survival_pclass}
+    \end{minipage}
+\end{figure}
+
+\subsection{Performance de Modelos}
+
+\justify{
+Se entrenaron y evaluaron cuatro algoritmos principales: Regresión Logística, Random Forest, SVM y XGBoost. Los modelos de ensamble (Random Forest y XGBoost) obtuvieron los mejores desempeños, con valores superiores en todas las métricas de clasificación. Este resultado es consistente con hallazgos en competiciones como Kaggle y con literatura previa sobre clasificación supervisada en el Titanic \parencite{barocas2019fairness}.
+}
+
+\begin{table}[H]
+    \centering
+    \caption{Comparación de modelos supervisados en el Titanic.}
+    \begin{tabular}{lccccc}
+    \toprule
+    \textbf{Modelo} & \textbf{Acc.} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} & \textbf{ROC-AUC} \\
+    \midrule
+    Reg. Logística & 0.823 & 0.834 & 0.789 & 0.811 & 0.878 \\
+    Random Forest  & 0.845 & 0.851 & 0.812 & 0.831 & 0.901 \\
+    XGBoost        & 0.852 & 0.858 & 0.823 & 0.840 & 0.912 \\
+    SVM            & 0.837 & 0.844 & 0.801 & 0.822 & 0.892 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+\justify{
+El análisis estadístico mostró que las diferencias entre XGBoost y Random Forest no fueron significativas al 95\% de confianza, aunque ambos superaron de manera consistente a la Regresión Logística y al SVM. 
+}
+
+\subsection{Interpretabilidad}
+
+\justify{
+Los métodos de interpretabilidad permitieron comprender el peso relativo de las variables en las predicciones. SHAP y LIME coincidieron en señalar como factores más influyentes el género, la tarifa pagada, el tamaño de la familia y la clase socioeconómica \parencite{lundberg2017shap, ribeiro2016lime}. Estos resultados refuerzan la necesidad de modelos explicables en contextos donde las decisiones afectan a personas.
+}
+
+\begin{itemize}
+    \item \textbf{Figura 6:} SHAP summary plot, mostrando el impacto de cada variable en el modelo.  
+    \item \textbf{Figura 7:} Importancia relativa de las 10 principales variables en ensambles.  
+    \item \textbf{Figura 8:} SHAP waterfall plot para casos representativos de sobrevivientes y no sobrevivientes.  
+\end{itemize}
+
+\justify{
+Los resultados revelaron también variables inesperadas, como la longitud del nombre y el hecho de tener cabina registrada (\textit{CabinKnown}), las cuales capturaron indirectamente información socioeconómica.
+}
+
+\subsection{Análisis de Fairness}
+
+\justify{
+El análisis de equidad mostró disparidades significativas por género y clase. Las mujeres presentaron mayores tasas de supervivencia predicha (TPR = 0.91) en comparación con los hombres (TPR = 0.72). Del mismo modo, la primera clase tuvo métricas de desempeño considerablemente más altas que la tercera clase. Estas observaciones evidencian cómo los modelos reproducen desigualdades históricas \parencite{barocas2019fairness}.
+}
+
+\begin{table}[H]
+    \centering
+    \caption{Métricas de fairness por grupo.}
+    \begin{tabular}{lcccc}
+    \toprule
+    \textbf{Grupo} & \textbf{TPR} & \textbf{FPR} & \textbf{Precision} & \textbf{Dem. Par.} \\
+    \midrule
+    Hombres    & 0.72 & 0.18 & 0.83 & 0.31 \\
+    Mujeres    & 0.91 & 0.08 & 0.92 & 0.78 \\
+    1ra Clase  & 0.89 & 0.11 & 0.91 & 0.68 \\
+    3ra Clase  & 0.74 & 0.21 & 0.79 & 0.42 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+\justify{
+Estos resultados confirman la reproducción de desigualdades históricas en los modelos. El análisis interseccional mostró que las mujeres de primera clase concentraron las mayores probabilidades de supervivencia predicha, mientras que los hombres de tercera clase tuvieron las más bajas.
+}
+
+\subsection{Validación de Hipótesis}
+
+\justify{
+Las hipótesis planteadas en la introducción fueron evaluadas de la siguiente forma:
+}
+
+\begin{itemize}
+    \item \textbf{RQ1:} Los factores más determinantes fueron género, tarifa, familia y clase social.  
+    \item \textbf{RQ2:} Los sesgos sociales se manifestaron en la ventaja clara de mujeres y primera clase.  
+    \item \textbf{RQ3:} Se evidenciaron \textit{trade-offs} entre precisión y equidad: XGBoost fue más preciso pero también amplificó desigualdades.  
+    \item \textbf{RQ4:} Las lecciones extraídas permiten reflexionar sobre cómo los algoritmos modernos pueden perpetuar o corregir injusticias históricas.  
+\end{itemize}
+
+
+%-------------------------------------
+% Discusión
+%-------------------------------------
+
+\section{Discusión} \label{sec:discusion}
+
+\subsection{Interpretación de Resultados}
+
+\justify{
+Los algoritmos de ensamble, especialmente Random Forest y XGBoost, ofrecieron el mejor desempeño para predecir la supervivencia de los pasajeros del Titanic. Las variables más influyentes fueron género (\textit{Sex}), tarifa (\textit{Fare}), tamaño familiar (\textit{FamilySize}) y clase socioeconómica (\textit{Pclass}). Estos hallazgos confirman que la pertenencia a clases altas y ser mujer incrementaban notablemente las probabilidades de sobrevivir, en línea con estudios previos \parencite{frey2011noblesse, gleicher2012women}.
+}
+
+\justify{
+El análisis mostró que la regla de “mujeres y niños primero” solo se aplicó parcialmente: ser mujer o niño aumentaba la probabilidad de sobrevivir, pero no de manera uniforme en todas las clases. Viajar en primera clase otorgó ventajas claras, no solo por la tarifa, sino por la proximidad física a los botes y la visibilidad de la emergencia. Asimismo, viajar acompañado de familia ofreció un efecto protector limitado. 
+}
+
+\justify{
+Entre los hallazgos inesperados destacan la longitud del nombre y la variable \textit{CabinKnown}, cuya sola existencia se correlacionó con mayor supervivencia. Esto refleja tanto sesgos en el registro como desigualdades estructurales. Además, interacciones como ser mujer de tercera clase con cabina asignada modificaron de forma sustancial la probabilidad de sobrevivir, evidenciando patrones sociales complejos capturados por los modelos.
+}
+
+\subsection{Implicaciones Éticas}
+
+\justify{
+El caso Titanic expone dilemas éticos que resuenan en la IA actual: ¿los modelos deben reproducir fielmente las desigualdades históricas o corregirlas para no perpetuarlas? Este debate es central en ámbitos modernos como crédito, salud o seguridad, donde los algoritmos pueden amplificar sesgos existentes \parencite{barocas2019fairness}. Lineamientos recientes insisten en principios como justicia y explicabilidad \parencite{floridi2019framework, jobin2019global}, que invitan a reflexionar sobre el balance entre precisión técnica y equidad social.
+}
+
+\subsection{Limitaciones}
+
+\justify{
+El dataset presenta vacíos importantes (77\% en \textit{Cabin}, 20\% en \textit{Age}), un tamaño reducido de muestra y un fuerte desbalance de clases, lo que limita la robustez de los modelos. Aunque se aplicaron técnicas de imputación y validación cruzada, persisten riesgos de sesgo estadístico. Además, las conclusiones no son extrapolables a tragedias modernas, pues las condiciones de seguridad y protocolos actuales son distintos. Por ello, los resultados deben interpretarse con cautela y exclusivamente con fines académicos.
+}
+
+\subsection{Comparación con Literatura}
+
+\justify{
+Los hallazgos coinciden con la literatura: la regla de “mujeres y niños primero” se aplicó de forma desigual \parencite{gleicher2012women}, y la pertenencia a clases altas fue determinante \parencite{frey2011noblesse}. Este estudio aporta contribuciones novedosas al identificar predictores indirectos como \textit{Name Length} y \textit{CabinKnown}, y al aplicar técnicas modernas de interpretabilidad (SHAP, LIME) que permiten explorar interacciones sociales más complejas. De este modo, se valida que los modelos de ML reproducen desigualdades históricas y pueden servir como herramienta para contextualizar patrones sociales.
+}
+
+\subsection{Aplicaciones Prácticas}
+
+\justify{
+Más allá de su valor histórico, el Titanic ilustra cómo los modelos de ML tienden a reflejar sesgos presentes en los datos. En escenarios críticos actuales —asignación de recursos médicos, crédito o admisiones educativas— resulta indispensable integrar métricas de equidad como \textit{Demographic Parity} o \textit{Equal Opportunity} desde las primeras fases del pipeline. 
+}
+
+\justify{
+Proponemos un marco en tres pasos: (i) diagnóstico de sesgos con métricas y análisis exploratorios; (ii) intervención metodológica con técnicas de remuestreo o ajustes de ponderación; y (iii) documentación transparente de las decisiones. Este enfoque permite equilibrar fidelidad estadística con legitimidad ética, garantizando predicciones no solo precisas sino también justas \parencite{rudin2019interpretable}.
+}
+
+
+%-------------------------------------
+% Conclusiones y Trabajo Futuro
+%-------------------------------------
+
+\section{Conclusiones y Trabajo Futuro} \label{sec:conclusiones}
+
+\subsection{Resumen de Contribuciones}
+
+\justify{
+Este estudio integró un análisis exhaustivo del dataset del Titanic con el objetivo de comprender cómo los factores sociales influyeron en la supervivencia, identificar la presencia de sesgos históricos y evaluar los \textit{trade-offs} entre precisión y equidad en modelos de aprendizaje automático. Los resultados confirmaron que género, clase socioeconómica, tarifa pagada y tamaño familiar fueron determinantes clave, mientras que variables menos evidentes —como la longitud del nombre o el registro de una cabina— ofrecieron nuevas perspectivas sobre cómo la desigualdad se refleja incluso en los detalles más mínimos de los datos.
+}
+
+\justify{
+La comparación de algoritmos mostró que los métodos de ensamble —especialmente Random Forest y XGBoost— ofrecieron el mejor rendimiento. Sin embargo, más allá de la precisión, la principal contribución fue integrar técnicas modernas de interpretabilidad (SHAP, LIME, PDP) y métricas de \textit{fairness} \parencite{barocas2019fairness} para evidenciar cómo los modelos reproducen desigualdades estructurales. Así, se unieron dos dimensiones que rara vez se abordan en conjunto: el rigor técnico y la reflexión ética.
+}
+
+\subsection{Reflexiones Finales}
+
+\justify{
+El Titanic es más que un accidente marítimo: es un espejo de las jerarquías sociales de principios del siglo XX. Su análisis con técnicas de ciencia de datos demuestra cómo la información heredada de un contexto desigual puede convertirse en un modelo igualmente sesgado. Esta lección es vigente: los sistemas de inteligencia artificial contemporáneos también corren el riesgo de amplificar sesgos si no se diseñan con conciencia crítica \parencite{floridi2019framework}. 
+}
+
+\justify{
+Una enseñanza central es que la precisión, aunque necesaria, nunca debe ser el único criterio. La confianza en la IA depende de su capacidad para ser justa, transparente y responsable. El Titanic, en este sentido, deja de ser únicamente una tragedia histórica y se convierte en un símbolo de advertencia para el futuro del desarrollo tecnológico.
+}
+
+\subsection{Trabajo Futuro}
+
+\justify{
+Este proyecto abre líneas claras para continuar y enriquecer la investigación:
+}
+
+\begin{enumerate}
+    \item Ampliar la base de datos con fuentes históricas complementarias y comparativas (p. ej., el Lusitania) que permitan un análisis más robusto.  
+    \item Incorporar métodos causales y métricas avanzadas de \textit{fairness} que distingan correlaciones espurias de desigualdades estructurales.  
+    \item Desarrollar herramientas interactivas que comuniquen visualmente los sesgos detectados, facilitando la comprensión social y académica.  
+\end{enumerate}
+
+\subsection{Llamado a la Acción}
+
+\justify{
+Los resultados de este proyecto invitan a una acción decidida en la comunidad científica y profesional: documentar, medir y mitigar sesgos desde las primeras fases de los modelos. Para la educación, el Titanic se ofrece como recurso pedagógico que demuestra que los datos no son neutrales y que todo modelo refleja valores implícitos. En definitiva, integrar principios éticos en la IA —tal como justicia, explicabilidad y responsabilidad— es esencial para evitar repetir, en la era digital, las desigualdades que marcaron el pasado.
+}
+
+\newpage
+
+%-------------------------------------
+% Referencias
+%-------------------------------------
+\printbibliography[heading=bibintoc, title={Referencias}]
+
+\newpage
+
+%-------------------------------------
+% Apéndices
+%-------------------------------------
+
+\appendix
+
+\vspace{-2cm}
+
+\section*{Anexos 1, 2 y 3}
+
+\vspace{-2cm}
+
+\subsection*{Apéndice A: Visualizaciones Adicionales}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth,trim=20 40 20 10,clip]{heatmap.png}
+  \caption{\textbf{Heatmap de correlación de valores faltantes.}
+  El gráfico muestra las correlaciones débiles entre \textit{Age}, \textit{Cabin} y \textit{Embarked}.}
+  \label{fig:appendix-heatmap}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth,trim=10 30 10 10,clip]{waterfall.png}
+  \caption{\textbf{SHAP waterfall plot para una instancia representativa.}
+  Variables como \textit{AgeGroup}, \textit{Sex} y \textit{FamilySize} contribuyen a la predicción de supervivencia.}
+  \label{fig:appendix-waterfall}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth,trim=20 30 20 10,clip]{shaap_summary.png} % <-- typo corregido
+  \caption{\textbf{SHAP summary plot (impacto global de variables).}
+  Factores como \textit{Sex}, \textit{CabinKnown}, \textit{Fare}, \textit{Pclass} y \textit{NameLength} destacan como determinantes.}
+  \label{fig:appendix-shap-summary}
+\end{figure}
+
+\subsection*{Apéndice B: Resultados Técnicos Adicionales}
+
+\begin{table}[H]
+\centering
+\caption{\textbf{Hiperparámetros seleccionados por modelo}. Valores óptimos obtenidos tras búsqueda en malla (Grid Search) con validación cruzada estratificada 5-fold.}
+\label{tab:hiperparametros}
+\begin{tabular}{ll}
+\toprule
+\textbf{Modelo} & \textbf{Hiperparámetros Óptimos} \\
+\midrule
+Regresión Logística & $C = 1.0$, solver = saga, penalty = l2 \\
+Random Forest       & n\_estimators = 200, max\_depth = 10, min\_samples\_split = 5 \\
+SVM                 & kernel = rbf, $C = 10$, gamma = scale \\
+XGBoost             & n\_estimators = 500, max\_depth = 6, learning\_rate = 0.05 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{itemize}
+    \item Resultados detallados de validación cruzada (5-fold estratificada), con métricas promedio y desviación estándar.
+    \item Análisis de sensibilidad de las estrategias de imputación (\textit{mean}, KNN, Random Forest) y de la selección de features.
+\end{itemize}
+
+\subsection*{Apéndice C: Consideraciones Éticas Extendidas}
+
+\begin{itemize}
+    \item \textbf{Stakeholders:} pasajeros de diferentes clases, investigadores históricos, y la comunidad de IA que reutiliza estos datos. 
+    \item \textbf{Escenarios de uso indebido:} entrenamiento de modelos modernos sin control de sesgos, reproduciendo desigualdades en sistemas de salud, crédito o justicia.
+    \item \textbf{Mitigación propuesta:} documentar el contexto histórico del dataset, incluir métricas de fairness en todas las fases y fomentar la interpretabilidad para auditar modelos.
+\end{itemize}
+
+\subsection*{Apéndice D: Reproducibilidad del Código}
+
+\justify{
+El código completo, notebooks, modelos serializados y datos procesados pueden encontrarse en el repositorio público:  
+\href{https://github.com/ivanlps/titanic-ml-project}{\texttt{github.com/ivanlps/titanic-ml-project}}  
+}
+
+\justify{
+En el repositorio están disponibles:
+}
+
+\begin{itemize}
+    \item README.md con instrucciones detalladas para reproducir los experimentos.
+    \item Archivo \texttt{requirements.txt} con versiones exactas de las dependencias usadas.
+    \item Estructura modular incluyendo carpetas de datos, notebooks, código fuente (\texttt{src/}), resultados (figuras y métricas).
+\end{itemize}
+
+
+\end{document}
