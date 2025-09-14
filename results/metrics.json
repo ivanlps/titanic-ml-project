@@ -1,0 +1,54 @@
+{
+    "0":{
+        "Modelo":"Regresi\u00f3n Log\u00edstica",
+        "Accuracy":0.7988826816,
+        "Precision":0.7088607595,
+        "Recall":0.8115942029,
+        "F1-Score":0.7567567568,
+        "ROC-AUC":0.8638998682,
+        "PR-AUC":0.7904200798,
+        "MCC":0.5905637258,
+        "Balanced Accuracy":0.8012516469,
+        "Tiempo Training":0.0782430172,
+        "Tiempo Inference":0.0046281815
+    },
+    "1":{
+        "Modelo":"Random Forest",
+        "Accuracy":0.8100558659,
+        "Precision":0.7272727273,
+        "Recall":0.8115942029,
+        "F1-Score":0.7671232877,
+        "ROC-AUC":0.8621870883,
+        "PR-AUC":0.8321374901,
+        "MCC":0.6101642632,
+        "Balanced Accuracy":0.810342556,
+        "Tiempo Training":0.6481919289,
+        "Tiempo Inference":0.0457777977
+    },
+    "2":{
+        "Modelo":"XGBoost",
+        "Accuracy":0.7988826816,
+        "Precision":0.72,
+        "Recall":0.7826086957,
+        "F1-Score":0.75,
+        "ROC-AUC":0.8581027668,
+        "PR-AUC":0.8231837637,
+        "MCC":0.5836800718,
+        "Balanced Accuracy":0.7958498024,
+        "Tiempo Training":0.2935729027,
+        "Tiempo Inference":0.0145258904
+    },
+    "3":{
+        "Modelo":"SVM",
+        "Accuracy":0.6145251397,
+        "Precision":0.0,
+        "Recall":0.0,
+        "F1-Score":0.0,
+        "ROC-AUC":0.7461791831,
+        "PR-AUC":0.657757743,
+        "MCC":0.0,
+        "Balanced Accuracy":0.5,
+        "Tiempo Training":0.238799572,
+        "Tiempo Inference":0.0722835064
+    }
+}

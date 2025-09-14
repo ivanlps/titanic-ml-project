@@ -1,0 +1,12 @@
+Variable,Descripción,Justificación
+Title,Titulo de la persona,"Puede asociarsea poder adquisitivo, edad y responsabilidades"
+FamilySize,Tamaño de la familia,Agrupación de vinculos familiares
+IsAlone,Indicador de si la persona viajaba sola,Variable binaria que resume FamilySize. Posibles patrones
+AgeGroup,Agrupación de las edades,Facilitar la interpretación con respecto a la edad
+FarePerPerson,Tarifa según numero de pasajeros asociados,Refleja poder adquisitivo más real
+Deck,Letra de la cabina,Indicador de localización
+CabinKnown,Indicador si el pasajero contaba con cabina asignada,Saber si la cabina está correlacionada con clase socioeconómica
+TicketFrequency,Número de pasajeros por ticket,Grupos pequeños y medianos pueden tener ventaja en la supervivencia
+NameLength,Longitud del nombre,Longitud del nombre está relacionado con formalidad y estatus social
+TitleGroup,Agrupación por título,Resumen de estatus social
+FareLevel,Nivel de la tarifa pagada,Facilita interpretación y reducción de outliers extremos de Fare
